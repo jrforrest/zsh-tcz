@@ -1,0 +1,4 @@
+#!/bin/sh
+
+set -e
+git clone https://github.com/zsh-users/zsh /tmp/zsh
