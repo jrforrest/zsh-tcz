@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Links all the files from /tmp/zsh/inst to the zsh dir
+
+# Needs to be run from the zsh-tcz project root
+
+mkdir -p zsh-doc/usr/local/share zsh/usr/local/share
+
+proj_root=`pwd`
+cd zsh/usr/local
+
+for f in `find /tmp/zsh/inst -type f`; do
+  # Strip the first couple of paths off that filename so we're dealing
+  # with the path after the ./configure prefix.
+  fm=`echo $f | sed 's|^/tmp/zsh/inst/usr/local/||'`
+
+  # this could stand to be optimized
+  mkdir -p `dirname $fm`
+  ln -s $f $fm
+done
+cd $proj_root
+
+# Move the man dir into the zsh-doc package
+mkdir -p zsh-doc/usr/local/share
+mv zsh/usr/local/share/man zsh-doc/usr/local/share

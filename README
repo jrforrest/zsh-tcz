@@ -1,0 +1,37 @@
+# ZSH-TCE
+
+Quick and dirty packing of zsh for tiny core linux.
+
+## Deps
+
+I dunno lol
+
+No seriously, I didn't think I'd distribute this so I forgot what deps
+I built ZSH with in the .tcz files included.  Build and repack zsh according
+to the directions below to 
+## Note
+
+I did a pretty shit job of putting this together.  Express your interest
+in this package if you have any, and maybe I'll take the time to package
+a better build and fix the deps.
+
+## Rebuilding the TCZs
+
+You'll probably want to do this, since I don't even remember what optional
+deps I had when I built it.
+
+Luckily this shouldn't be too tricky.
+
+I think the only required build deps are compiletc and tcztools.
+
+1)  Install tcztools
+2)  `./zsh-get` puts the source in /tmp/zsh
+3)  `./zsh-build` builds and installs to /tmp/zsh/inst with prefix /usr/local
+4)  `util/dolinks` links the files from /tmp/zsh/inst into zsh and zsh-doc
+5)  `tcz-package zsh zsh-doc` uses the links in ./zsh and ./zsh-doc to 
+    build some .tcz packages.  These will go to your tce dir by default.
+
+tcztools should build, install and copy the resulting zsh.tcz to your tce dir.
+
+If you make a proper build, email me a deps list and a .tcz, or even
+better, take maintainer attribution and push it up to the tc team yourself.

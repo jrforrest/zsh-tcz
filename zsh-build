@@ -4,3 +4,4 @@ cd /tmp/zsh
 ./Util/preconfig
 ./configure --prefix=/usr/local/
 make
+make install DESTDIR=/tmp/zsh/inst
